@@ -1,0 +1,113 @@
+import React, { Component } from 'react';
+import { View, StyleSheet, TouchableHighlight, TouchableOpacity, Text, Image, FlatList } from 'react-native';
+
+
+
+export default class App extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerStyle: {
+      backgroundColor: '#13C0CE',
+    },
+    headerTitleStyle: { alignSelf: 'center',marginLeft:56 },
+    title: 'Main Page',
+    
+    headerLeft: (
+      <View>
+
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+        <Image
+          style={{ marginLeft: 10, height: 25, width: 25 }}
+          source={require('./images/menu.png')}
+        
+        />
+         
+        </TouchableOpacity>
+       
+      </View>
+    ),  
+  });
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.image}>
+        
+       
+        <TouchableOpacity  style={styles.button} 
+         onPress={() => navigate('inventoryScreen')}
+        >
+           <View style={styles.image1}>
+
+        
+          
+           
+        <Image style={styles.imagestyle}
+             source={require('./images/a.jpg')}
+             
+            />
+            <Text>Inventory</Text>
+            </View>
+          
+        </TouchableOpacity>
+       
+      
+      
+        <TouchableOpacity  style={styles.button} 
+         onPress={() => navigate('LocationScreen')}
+        >
+        <View style={styles.image2}>
+          
+           
+        <Image style={styles.imagestyle}
+             source={require('./images/b.jpg')}
+             
+            />
+            </View>
+          
+        </TouchableOpacity>
+        <TouchableOpacity  style={styles.button}
+         onPress={() => navigate('categoryScreen')}
+        >
+        <View style={styles.image3}>
+          
+           
+        <Image style={styles.imagestyle}
+             source={require('./images/c.jpg')}
+             
+            />
+            </View>
+          
+        </TouchableOpacity>
+       
+        </View>
+    );
+   
+    
+  }
+  
+}
+
+
+const styles = StyleSheet.create({
+  image : {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  image1: {
+    alignItems: 'flex-start',
+    marginTop:15,  
+  },
+  image2: { 
+    alignItems: 'flex-start', 
+    marginTop:15,
+  },
+  image3: {
+    alignItems: 'flex-end', 
+    marginTop:15, 
+  },  
+  imagestyle: {
+    height:100,
+    width:100
+  }, 
+});
